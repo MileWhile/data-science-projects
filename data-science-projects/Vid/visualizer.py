@@ -4,11 +4,7 @@ import matplotlib.pyplot as plt
 
 # Load the Titanic dataset
 df = sns.load_dataset("titanic")
-
-# Drop rows with null values for clean visuals
 df = df.dropna(subset=["age", "fare", "sex", "class", "survived"])
-
-# -------- Bar Chart: Survival Count --------
 plt.figure(figsize=(6, 4))
 sns.countplot(x='survived', data=df)
 plt.title("Survival Count")
@@ -18,7 +14,7 @@ plt.tight_layout()
 plt.savefig("bar_chart_survival.png")  # Save image
 plt.show()
 
-# -------- Scatter Plot: Age vs Fare --------
+# Scatter Plot: Age vs Fare
 plt.figure(figsize=(6, 4))
 sns.scatterplot(x='age', y='fare', hue='sex', data=df)
 plt.title("Age vs Fare Paid")
@@ -29,7 +25,7 @@ plt.tight_layout()
 plt.savefig("scatter_plot_age_fare.png")
 plt.show()
 
-# -------- Pie Chart: Class Distribution --------
+# Pie Chart: Class Distribution
 class_counts = df['class'].value_counts()
 
 plt.figure(figsize=(6, 6))
