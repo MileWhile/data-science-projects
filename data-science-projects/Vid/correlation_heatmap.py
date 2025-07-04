@@ -4,11 +4,9 @@ import matplotlib.pyplot as plt
 
 # Load Titanic dataset
 df = sns.load_dataset("titanic")
-
-# Keep only numeric columns
 numeric_df = df.select_dtypes(include=['float64', 'int64'])
 
-# Drop rows with nulls (to avoid NaNs in correlation)
+# Drop rows with nulls
 numeric_df = numeric_df.dropna()
 
 # Compute correlation matrix
